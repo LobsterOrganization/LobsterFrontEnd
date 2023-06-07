@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTrends } from "C:/Users/sarad/Documents/Master_MIAGE/FRONT/lobsterfrontend/src/actions/trends.actions.js";
-import { getSentiment } from "C:/Users/sarad/Documents/Master_MIAGE/FRONT/lobsterfrontend/src/actions/sentiments.actions";
+import { getTrends } from "./actions/trends.actions.js";
+import { getSentiment } from "./actions/sentiments.actions.js";
 import { getTheme } from "./actions/themes.actions";
 
 

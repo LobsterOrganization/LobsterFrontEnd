@@ -1,4 +1,4 @@
-import { GET_SENTIMENTS} from "C:/Users/sarad/Documents/Master_MIAGE/FRONT/lobsterfrontend/src/actions/sentiments.actions.js";
+import { GET_SENTIMENTS} from ".././actions/sentiments.actions.js";
 
 const initialState = {};
 

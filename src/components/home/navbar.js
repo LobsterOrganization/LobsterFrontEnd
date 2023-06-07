@@ -39,7 +39,7 @@ const NavBar = () => {
                 </a>
               </li>
             </ul>
-
+            
             <div className="nav-item media d-flex align-items-center">
               <img
                 src="http://img.over-blog-kiwi.com/3/22/80/20/20190713/ob_a80861_photo-2.jpg"
@@ -50,7 +50,12 @@ const NavBar = () => {
             </div>
           </div>
         </div>
+        
       </nav>
+      Bienvenue dans l'OriGinal  dashboard interactif où vous pourrez avoir une vue d'ensemble sur la transition écologique & la transition énérgétique à travers
+          Twitter.  Vous pourrez avoir un aperçu des tendances du moment sur la transition énergétique, une fluctuation sur les échanges basés sur la transition énergétique, les tendances thématiques depuis début 2023
+          ainsi qu'un graphique d'acteurs de la transition énergétique. N'hésitez pas à cliquer sur <b>Neo Dashboard</b> si vous souhaitez un autre storytelling.
+          Bonne journée à vous !
     </div>
   );
 };

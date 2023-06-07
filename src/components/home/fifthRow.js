@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch} from "react-redux";
-import { getSentiment } from "C:/Users/sarad/Documents/Master_MIAGE/FRONT/lobsterfrontend/src/actions/sentiments.actions.js";
+import { getSentiment } from "../../actions/sentiments.actions.js";
 
 
 import {

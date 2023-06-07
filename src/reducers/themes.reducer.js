@@ -1,4 +1,4 @@
-import {GET_THEMES} from "C:/Users/sarad/Documents/Master_MIAGE/FRONT/lobsterfrontend/src/actions/themes.actions.js";
+import {GET_THEMES} from ".././actions/themes.actions.js";
 
 const initialState = {};
 
