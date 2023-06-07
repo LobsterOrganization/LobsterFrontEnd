@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch} from "react-redux";
-import { getSentiment } from "../../actions/sentiments.actions.js";
+import { getSentiment } from "C:/Users/HOST/OneDrive/Documents/NeoFrontEnd/frontendV2/src/actions/sentiments.actions.js";
 
 
 import {
@@ -42,8 +42,16 @@ const options = {
   layout: { padding: { bottom: 100 } },
   scales: {
     y: {
+      title: {
+        display: true,
+        text: 'Nombre de tweets',
+        color: 'black',   // Changed color to black for better visibility
+        font: {
+          size: 20,
+        }
+      },
       ticks: {
-        color: "white",
+        color: "black",  // Changed color to black for better visibility
         font: {
           size: 18,
         },
@@ -54,8 +62,15 @@ const options = {
       beginAtZero:true,
     },
     x: {
+      title: {
+        display: true,
+        color: 'black',  // Changed color to black for better visibility
+        font: {
+          size: 10,
+        }
+      },
       ticks: {
-        color: "white",
+        color: "black",  // Changed color to black for better visibility
         font: {
           size: 18,
         },
@@ -64,39 +79,36 @@ const options = {
   },
 };
 
- 
-
 
 const Content = () => {
+  const sentiments = useSelector((state) => state.sentimentsReducer);
+  const [dates, setDates] = useState([]);
+  const [negatif, setNegatif] = useState([]);
+  const [neutre, setNeutre] = useState([]);
+  const [positif, setPositif] = useState([]);
 
-const sentiments = useSelector((state) => state.sentimentsReducer);
-const [dates, setDates] = useState([]);
-const [negatif, setNegatif] = useState([]);
-const [neutre, setNeutre] = useState([]);
-const [positif, setPositif] = useState([]);
+  useEffect(() => {
+    if (sentiments) {
+      const newDates = [];
+      const newNegatif = [];
+      const newNeutre = [];
+      const newPositif = [];
 
-useEffect(() => {
-  if (sentiments) {
-    const newDates = [];
-    const newNegatif = [];
-    const newNeutre = [];
-    const newPositif = [];
+      Object.keys(sentiments).map(key => {
+        newDates.push(sentiments[key].Date);
+        newNegatif.push(sentiments[key].Negatif);
+        newNeutre.push(sentiments[key].Neutre);
+        newPositif.push(sentiments[key].Positif);
+      });
 
-    Object.keys(sentiments).map(key => {
-      newDates.push(sentiments[key].Date);
-      newNegatif.push(sentiments[key].Negatif);
-      newNeutre.push(sentiments[key].Neutre);
-      newPositif.push(sentiments[key].Positif);
-    });
-
-    setDates(newDates);
-    console.log("MAREECARR", newDates);
-    setNegatif(newNegatif);
-    setNeutre(newNeutre);
-    setPositif(newPositif);
-  }
-}, [sentiments]);
-  
+      setDates(newDates);
+      console.log("MAREECARR", newDates);
+      setNegatif(newNegatif);
+      setNeutre(newNeutre);
+      setPositif(newPositif);
+    }
+  }, [sentiments]);
+    
 
   const data = {
     labels: dates,
@@ -124,9 +136,6 @@ useEffect(() => {
       },
     ],
   };
-  
-
-    
 
   if (!sentiments || Object.keys(sentiments).length === 0) {
     return <div>Loading...</div>;
@@ -137,21 +146,19 @@ useEffect(() => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md" id="first-row-content">
-        
             <h4 className="text-center">             
-                  Fluctuation sur les échanges basés sur la Transition Energétique
+              Fluctuation sur les échanges basés sur la Transition Energétique
             </h4>
-            <div  style={{ width: "1200px", height: "400px", display: "flex", justifyContent: "center", alignItems: "center", marginTop : "7%" , marginLeft: "10%"}} >
-            <Line data={data} options={options}/>
+            <div style={{ width: "1200px", height: "400px", display: "flex", justifyContent: "center", alignItems: "center", marginTop : "7%" , marginLeft: "10%"}} >
+              <Line data={data} options={options}/>
             </div>
-   
           </div>
-
-            </div>
+        </div>
       </div>
     </div>
   );
 };
+
 const FifthRow = () => {
   return <Content />;
 };
