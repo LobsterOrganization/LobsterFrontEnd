@@ -12,7 +12,7 @@ const LeftNav = () => {
             className="mr-3 rounded-circle shadow-sm"
           />
           <div className="media-body">
-            <h4 className="m-0">OG Lobster</h4>
+            <h4 className="m-0">Neo Lobster dashboard</h4>
           </div>
         </div>
       </div>

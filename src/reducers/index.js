@@ -6,6 +6,7 @@ import occurenceReducer from './occurence.reducer';
 import polariteReducer from './polarite.reducer';
 import sentimentsReducer from './sentiments.reducer';
 import tweetsReducer from './tweets.reducer';
+import actorsReducer from './actors.reducer';
 import themesReducer from './themes.reducer';
 
 
@@ -17,5 +18,6 @@ export default combineReducers({
     polariteReducer,
     tweetsReducer,
     sentimentsReducer,
-    themesReducer
+    themesReducer,
+    actorsReducer
 });

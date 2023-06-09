@@ -107,7 +107,6 @@ const data = {
   ],
 };
 
-
 /* Radar */
 const dataRadar = {
   labels: ["Positifs", "Négatifs", "Neutres"],
@@ -137,7 +136,7 @@ enrollment.push(trendlabels[key].freq);
               Twitter et la Transition Energétique
             </h4>
             <div  style={{ width: "100%", height : "90%" }} >
-            <Bar options={options} data={data} />
+            <Radar data={dataRadar} />
             </div>
             
           </div>
@@ -149,36 +148,6 @@ enrollment.push(trendlabels[key].freq);
             <Radar data={dataRadar} />
             </div>
             
-          </div>
-
-          <div className="col-lg" id="first-row-content2">
-            <div className="span4" id="row-first-content1">
-              <h3 className="text-center">
-                <a href="#">Top 10</a>
-              </h3>
-              <p className="text-center">Tweets sur le mot “éolienne”</p>
-              <p className="text-center smallText">
-                20% Increase from Last Week
-              </p>
-            </div>
-            <div className="span4" id="row-first-content2">
-              <h3 className="text-center" v>
-              <a href="#">{positiveCount}</a>
-              </h3>
-              <p className="text-center">Nouveaux acteurs</p>
-              <p className="text-center smallText">
-                15% Increase from Last Month
-              </p>
-            </div>
-            <div className="span4" id="row-first-content3">
-              <h3 className="text-center">
-                <a href="#">500</a>
-              </h3>
-              <p className="text-center">Nouveaux thèmes</p>
-              <p className="text-center smallText">
-                5% Increase from Last Week
-              </p>
-            </div>
           </div>
         </div>
       </div>

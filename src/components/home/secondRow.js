@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+
 
 import Graph from "graphology";
 import { SigmaContainer, useLoadGraph } from "@react-sigma/core";
@@ -18,21 +19,43 @@ function makeRandomColor() {
 }
 
 const LoadGraph = () => {
+
+  const actors = useSelector((state) => state.actorsReducer);
+  const [Utilisateur_name, setUtilisateur_name] = useState([]);
+  const [Score, setScore] = useState([]);
+
   const loadGraph = useLoadGraph();
 
-  var nodeData = useSelector((state) => state.nodesReducer); // Data get by redux
+  useEffect(() => {
+    if (actors) {
+      const newUtilisateur= [];
+      const newScore = [];
+      Object.keys(actors).map(key => {
+        newUtilisateur.push(actors[key].Utilisateur_name);
+        newScore.push(actors[key].Score);
 
+      });
+  
+      setUtilisateur_name(newUtilisateur);
+      console.log("LALAASARARAAHHHHHHH", newScore);
+      setScore(newScore);
+    }
+  }, [actors]);
+
+  var nodeData = useSelector((state) => state.actorsReducer);
+   // Data get by redux
+   console.log("SSAAARAHHHSHDH", nodeData);
   useEffect(() => {
     const graph = new Graph();
 
     for (const key of Object.keys(nodeData)) {
         //x: getRandomInt(10),
         //y: getRandomInt(10),
-      graph.addNode(`${nodeData[key].actorName}`, {
-        x: getRandomInt(10),
-        y: getRandomInt(10),
-        size: 20,
-        label: `${nodeData[key].actorName}`,
+      graph.addNode(`${nodeData[key].Utilisateur_name}`, {
+        x: getRandomInt(90000000),
+        y: getRandomInt(90000000),
+        size: `${nodeData[key].Score}`/3000,
+        label: `${nodeData[key].Utilisateur_name}`,
         color: makeRandomColor(),
       });
     }
@@ -45,57 +68,15 @@ const LoadGraph = () => {
   return null;
 };
 
-const NotificationContent = () => {
-  return (
-    <div className="col-lg-4" id="notification">
-      <div className="title">
-        <h5>Alertes/Notifications</h5>
-      </div>
-
-      <div className="span4" id="row-notification">
-        <h3 className="">
-          <a href="#">Notification</a>
-        </h3>
-        <p className="smallTextNotification">04 April, 2021 | 04:00 PM</p>
-      </div>
-
-      <div className="span4" id="row-notification">
-        <h3 className="">
-          <a href="#">Notification</a>
-        </h3>
-        <p className="smallTextNotification">04 April, 2021 | 04:00 PM</p>
-      </div>
-
-      <div className="span4" id="row-notification">
-        <h3 className="">
-          <a href="#">Notification</a>
-        </h3>
-        <p className="smallTextNotification">04 April, 2021 | 04:00 PM</p>
-      </div>
-
-      <div className="span4" id="row-notification">
-        <h3 className="">
-          <a href="#">Notification</a>
-        </h3>
-        <p className="smallTextNotification">04 April, 2021 | 04:00 PM</p>
-      </div>
-
-      <div className="footNotification">
-        <p>Voir plus</p>
-      </div>
-    </div>
-  );
-};
-
 const SecondRow = () => {
   return (
     <div className="page-content p-2" id="content">
       <div className="row">
-        <div className="col-lg-8">
+        <div className="col-lg-12">
           <SigmaContainer
             className="containerSigma"
             style={{
-              height: "500px",
+              height: "900px",
               width: "100%",
               border: "0.5px solid #aaa",
               margin: "0",
@@ -104,7 +85,6 @@ const SecondRow = () => {
             <LoadGraph />
           </SigmaContainer>
         </div>
-        <NotificationContent />
       </div>
     </div>
   );

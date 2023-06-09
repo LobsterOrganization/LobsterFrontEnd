@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch} from "react-redux";
-import { getSentiment } from "C:/Users/HOST/OneDrive/Documents/NeoFrontEnd/frontendV2/src/actions/sentiments.actions.js";
+//import { getSentiment } from "C:/Users/HOST/OneDrive/Documents/NeoFrontEnd/frontendV2/src/actions/sentiments.actions.js";
 
 
 import {
@@ -38,7 +38,7 @@ ChartJS.register(
 
 
 const options = {
-  plugins: { legend: { display: false } },
+  plugins: { legend: { display: true } },
   layout: { padding: { bottom: 100 } },
   scales: {
     y: {
@@ -142,16 +142,20 @@ const Content = () => {
   }
 
   return (
-    <div className="page-content-first" id="first-content">
+    <div className="page-content-first" id="first-content" >
       <div className="container-fluid">
-        <div className="row">
-          <div className="col-md" id="first-row-content">
-            <h4 className="text-center">             
-              Fluctuation sur les échanges basés sur la Transition Energétique
-            </h4>
-            <div style={{ width: "1200px", height: "400px", display: "flex", justifyContent: "center", alignItems: "center", marginTop : "7%" , marginLeft: "10%"}} >
-              <Line data={data} options={options}/>
+        <div className="row" >
+        
+          <div className="col-md" id="first-row-content" >
+          <h4 className="text-center">             
+              Fluctuation des sentiments des Tweets sur l'hydrogène : un des facteurs les plus échangés sur la Transition Energétique (par semaine)
+           
+            <div style={{ width: "1100px", height: "250px", display: "flex", justifyContent: "center", alignItems: "center", marginTop : "10%" , marginLeft: "10%"}} >
+         
+              <Line data={data} options={options} plugins={[Legend]}/>
+              
             </div>
+            </h4>
           </div>
         </div>
       </div>

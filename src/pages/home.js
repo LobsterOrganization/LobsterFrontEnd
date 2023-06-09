@@ -3,6 +3,7 @@ import LeftNav from "../components/home/leftNav";
 import FirstRow from "../components/home/firstRow"
 import SecondRow from "../components/home/secondRow";
 import FourthRow from "../components/home/fourthRow";
+import SixthRow from "../components/home/sixthRow";
 import FifthRow from "../components/home/fifthRow";
 import NavBar from "../components/home/navbar";
 
@@ -13,6 +14,7 @@ const Home = () => {
       <LeftNav />
       <FirstRow />
       <FifthRow />
+
       <FourthRow />
       <SecondRow />
 

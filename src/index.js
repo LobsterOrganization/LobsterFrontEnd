@@ -11,6 +11,7 @@ import { getTrends } from "./actions/trends.actions";
 import { getOccurences } from "./actions/occurence.actions";
 import { getPolarites } from "./actions/polarite.actions";
 import { getTweetes } from "./actions/tweets.actions";
+import { getActors } from "./actions/actors.actions";
 
 // dev tools
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -26,6 +27,8 @@ store.dispatch(getTrends());
 store.dispatch(getOccurences());
 store.dispatch(getPolarites());
 store.dispatch(getTweetes());
+store.dispatch(getTweetes());
+store.dispatch(getActors());
 
 ReactDOM.render(
   <Provider store={store}>
